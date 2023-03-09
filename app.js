@@ -6,6 +6,7 @@ const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
 const dashboardRouter = require('./routes/dashboard');
+const activityRouter = require('./routes/activity');
 const usersRouter = require('./routes/users');
 
 const app = express();
@@ -23,6 +24,7 @@ app.use('/style', express.static(path.join(__dirname, 'node_modules/admin-lte'))
 
 app.use('/', indexRouter);
 app.use('/dashboard', dashboardRouter);
+app.use('/activity', activityRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
