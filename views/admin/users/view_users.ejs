@@ -72,16 +72,18 @@
                         </thead>
                         <tbody>
                           <tr>
-                            <td>175</td>
-                            <td>Mike Doe</td>
-                            <td>11-7-2014</td>
-                            <td><span class="tag tag-danger">Denied</span></td>
-                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                            <td>
-                              <a href="/users/edit" class="btn btn-primary">edit</a>
-                              <a href="/users/delete" class="btn btn-danger">delete</a>
-                            </td>
-                          </tr>
+                            <% for(let i = 0; i < user.lenght; i++) { %>
+                              <td><%= i+1 %></td>
+                              <td><%= user.fullname %></td>
+                              <td><%= user.username %></td>
+                              <td><%= user.email %></td>
+                              <td><%= user.department %></td>
+                              <td>
+                                <a href="/users/edit" class="btn btn-primary">edit</a>
+                                <a href="/users/delete" class="btn btn-danger">delete</a>
+                              </td>
+                            </tr>
+                           <% } %>
                         </tbody>
                       </table>
                     </div>

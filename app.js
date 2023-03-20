@@ -4,6 +4,10 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
+//Database
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://127.0.0.1:27017/db_activity');
+
 const indexRouter = require('./routes/index');
 const dashboardRouter = require('./routes/dashboard');
 const activityRouter = require('./routes/activity');

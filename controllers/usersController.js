@@ -3,19 +3,26 @@ const Users = require('../models/Users');
 module.exports = {
     viewUsers : async (req, res) => {
         try {
-            // const activity = await Activity.find();
+            const user = await Users.find();
             res.render('admin/users/view_users', {
-                // activity,
+                user,
                 title: "ActivityCSI | Users"
             });
         } catch (error) {
-            res.redirect('/users');
+            res.redirect('/admin/users');
         }
     },
 
     addUsers : async (req, res) => {
         try {
-            res.render('admin/users/add_users', {
+            const {fullname, username, email, 
+                    department, job_level, password, gender, role} = req.body;
+            const result = await Users.create({
+                fullname, username, email, 
+                department, job_level, password, 
+                gender, role
+                });
+            res.redirect('/users', {
                 title: 'ActivityCSI | Users Add'
             });
         } catch (error) {
@@ -32,5 +39,13 @@ module.exports = {
             res.redirect('/users')
         }
     },
+
+    deleteUsers: async (req, res ) => {
+        try {
+            
+        } catch (error) {
+            
+        }
+    }
 
 }

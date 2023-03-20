@@ -40,7 +40,7 @@
         </div>
         <div class="card-body">
             <section class="content">
-                <form action="" method="post">
+                <form action="/users" method="POST">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card card-primary">
@@ -55,27 +55,27 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="Fullname">Fullname</label>
-                                        <input type="text" id="Fullname" class="form-control" placeholder="Fullname">
+                                        <input type="text" id="Fullname" name="fullname" class="form-control" placeholder="Fullname">
                                     </div>
                                     <div class="form-group">
                                         <label for="Username">Username</label>
-                                        <input type="text" id="Username" class="form-control" placeholder="Username">
+                                        <input type="text" id="Username" name="username" class="form-control" placeholder="Username">
                                     </div>
                                     <div class="form-group">
                                         <label for="email">Email</label>
-                                        <input type="email" id="email" class="form-control" placeholder="Email">
+                                        <input type="email" id="email" name="email" class="form-control" placeholder="Email">
                                     </div> 
                                     <div class="form-group">
-                                        <label for="inputStatus">Department</label>
-                                        <select id="inputStatus" class="form-control custom-select">
+                                        <label for="Department">Department</label>
+                                        <select id="Department" name="department" class="form-control custom-select">
                                         <option selected disabled>Select one</option>
-                                        <option>AFS</option>
-                                        <option>TSR</option>
+                                        <option value="AFS">AFS</option>
+                                        <option value="TSR">TSR</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputStatus">Job Level</label>
-                                        <select id="inputStatus" class="form-control custom-select">
+                                        <label for="level">Job Level</label>
+                                        <select id="level" name="job_level" class="form-control custom-select">
                                         <option selected disabled>Select one</option>
                                         <option value="Staff TSR">Staff TSR</option>
                                         <option value="Staff AFS">Staff AFS</option>
@@ -83,20 +83,20 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputName">Password</label>
-                                        <input type="text" id="inputName" class="form-control">
+                                        <label for="Password">Password</label>
+                                        <input type="text" id="Password" name="password" class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputStatus">Gender</label>
-                                        <select id="inputStatus" class="form-control custom-select">
+                                        <label for="Gender">Gender</label>
+                                        <select id="Gender" name="gender" class="form-control custom-select">
                                         <option selected disabled>Select one</option>
-                                        <option>Male</option>
-                                        <option>Female</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputStatus">Role</label>
-                                        <select id="inputStatus" class="form-control custom-select">
+                                        <label for="Role">Role</label>
+                                        <select id="Role" name="role" class="form-control custom-select">
                                         <option selected disabled>Select one</option>
                                         <option value="1">Admin</option>
                                         <option value="2">Staff</option>
