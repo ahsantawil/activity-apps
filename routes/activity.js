@@ -1,9 +1,10 @@
 const express = require('express');
+const activityController = require('../controllers/activityController');
 const router = express.Router();
 
+
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('admin/activity/form_activity', { title : 'activity'});
-});
+router.get('/', activityController.viewActivity);
+// router.post('/', activityController.addActivity);
 
 module.exports = router;
