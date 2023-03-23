@@ -8,11 +8,8 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://127.0.0.1:27017/db_activity');
 
-const indexRouter = require('./routes/index');
-const dashboardRouter = require('./routes/dashboard');
-const activityRouter = require('./routes/activity');
-const reportRouter = require('./routes/report');
-const usersRouter = require('./routes/users');
+// route admin
+const adminRoute = require('./routes/admin');
 
 const app = express();
 
@@ -27,11 +24,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/style', express.static(path.join(__dirname, 'node_modules/admin-lte')));
 
-app.use('/', indexRouter);
-app.use('/dashboard', dashboardRouter);
-app.use('/activity', activityRouter);
-app.use('/report', reportRouter);
-app.use('/users', usersRouter);
+app.use('/', adminRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
