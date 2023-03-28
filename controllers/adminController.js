@@ -3,6 +3,7 @@ const Users = require("../models/Users");
 const bcrypt = require('bcryptjs');
 
 module.exports = {
+        // Login
       signIn: async (req, res) => {
             try {
                   res.render('index', {
@@ -12,16 +13,29 @@ module.exports = {
                   res.redirect('/');
               } 
       },
+      //logout
+      Logout: async (req, res) => {
+
+      },
+
+      // Dashboard
       viewDashboard: async (req, res) => {
             try {
+                const alertMessage = req.flash("alertMessage")
+                const alertStatus = req.flash("alertStatus")
+
+                const alert = { message: alertMessage, status: alertStatus}
                 res.render('admin/dashboard/view_dashboard', {
                     title: " Activity | Dashboard ",
                 });
-            } catch (error) {
+            } catch (err) {
+                req.flash('alertMessage', `${err.message}`)
+                req.flash('alertStatus', 'danger')
                 res.redirect('/dashboard');
             }
       },
 
+      // Activity
       viewActivity : async (req, res) => {
             try {
                 // const activity = await Activity.find();
@@ -29,19 +43,23 @@ module.exports = {
                     // activity,
                     title: "ActivityCSI | Activity"
                 });
-            } catch (error) {
+            } catch (err) {
+                req.flash('alertMessage', `${err.message}`)
+                req.flash('alertStatus', 'danger')
                 res.redirect('/activity');
             }
       },
     
       addActivity : async (req, res) => {
             try {
-                res.redirect('/admin/activity/add_activity')
+                res.redirect('/admin/activity/add')
             } catch (error) {
-                res.redirect('/admin/activity/add_activity')
+                res.redirect('/admin/activity/add')
             }
       },
 
+
+      // Users
       viewUsers : async (req, res) => {
             try {
                 const user = await Users.find();
@@ -53,19 +71,32 @@ module.exports = {
                 res.redirect('/admin/users');
             }
       },
-    
+      
+      viewAddUsers: async (req, res) => {
+        try {
+            res.render('admin/users/add', {
+                title: 'ActivityCSI | Users Add'
+            });
+        } catch (error) {
+            req.flash('alertMessage', `${err.message}`)
+            req.flash('alertStatus', 'danger')
+            res.redirect('/users')
+        }
+      },
+
       addUsers : async (req, res) => {
             try {
                 const {fullname, username, email, 
                         department, job_level, password, gender, role} = req.body;
-                const result = await Users.create({
+                const users = await Users({
                     fullname, username, email, 
                     department, job_level, password, 
                     gender, role
                     });
-                res.redirect('/users', {
-                    title: 'ActivityCSI | Users Add'
-                });
+                const result = await users.save();
+                req.flash('alertMessage', "Berhasil tambah users")
+                req.flash('alertStatus', "success")
+                res.redirect('/users');
             } catch (error) {
                 res.redirect('/users')
             }
@@ -89,6 +120,8 @@ module.exports = {
             }
       },
 
+
+      // Report
       viewReport: async (req, res) => {
             try {
                 res.render('admin/report/view_report', {

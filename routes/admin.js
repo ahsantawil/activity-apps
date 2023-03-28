@@ -13,6 +13,7 @@ router.get('/activity', adminController.viewActivity);
 
 //user route
 router.get('/users', adminController.viewUsers);
+router.get('/users/add', adminController.viewAddUsers);
 router.post('/users', adminController.addUsers);
 router.put('/users/:id', adminController.editUsers);
 router.delete('/users/:id', adminController.deleteUsers);
