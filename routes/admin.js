@@ -15,6 +15,7 @@ router.get('/activity', adminController.viewActivity);
 router.get('/users', adminController.viewUsers);
 router.get('/users/add', adminController.viewAddUsers);
 router.post('/users', adminController.addUsers);
+router.get('/users/edit/:id', adminController.viewEditUsers);
 router.put('/users/:id', adminController.editUsers);
 router.delete('/users/:id', adminController.deleteUsers);
 

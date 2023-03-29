@@ -68,6 +68,6 @@ const activitySchema = new mongoose.Schema({
         type: String,
         default: 'Prosess'
     },
-})
+}, {timestamps: true})
 
 module.exports = mongoose.model('Activity', activitySchema);

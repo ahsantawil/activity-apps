@@ -9,11 +9,11 @@ module.exports = {
                   res.render('index', {
                       title: " SignIn ",
                   });
-              } catch (error) {
+              } catch (err) {
                   res.redirect('/');
               } 
       },
-      //logout
+      //logout  
       Logout: async (req, res) => {
 
       },
@@ -21,16 +21,10 @@ module.exports = {
       // Dashboard
       viewDashboard: async (req, res) => {
             try {
-                const alertMessage = req.flash("alertMessage")
-                const alertStatus = req.flash("alertStatus")
-
-                const alert = { message: alertMessage, status: alertStatus}
                 res.render('admin/dashboard/view_dashboard', {
                     title: " Activity | Dashboard ",
                 });
             } catch (err) {
-                req.flash('alertMessage', `${err.message}`)
-                req.flash('alertStatus', 'danger')
                 res.redirect('/dashboard');
             }
       },
@@ -53,7 +47,7 @@ module.exports = {
       addActivity : async (req, res) => {
             try {
                 res.redirect('/admin/activity/add')
-            } catch (error) {
+            } catch (err) {
                 res.redirect('/admin/activity/add')
             }
       },
@@ -67,8 +61,8 @@ module.exports = {
                     user,
                     title: "ActivityCSI | Users"
                 });
-            } catch (error) {
-                res.redirect('/admin/users');
+            } catch (err) {
+                res.redirect('/users');
             }
       },
       
@@ -77,7 +71,7 @@ module.exports = {
             res.render('admin/users/add', {
                 title: 'ActivityCSI | Users Add'
             });
-        } catch (error) {
+        } catch (err) {
             req.flash('alertMessage', `${err.message}`)
             req.flash('alertStatus', 'danger')
             res.redirect('/users')
@@ -97,26 +91,52 @@ module.exports = {
                 req.flash('alertMessage', "Berhasil tambah users")
                 req.flash('alertStatus', "success")
                 res.redirect('/users');
-            } catch (error) {
+            } catch (err) {
                 res.redirect('/users')
             }
       },
     
-      editUsers : async (req, res) => {
+      viewEditUsers : async (req, res) => {
             try {
-                res.render('admin/users/edit_users', {
+                const { id } = req.params;
+                const user = await Users.findOne({_id: id});
+                res.render('admin/users/edit', {
+                    user,
                     title: 'ActivityCSI | Users Edit'
                 });
-            } catch (error) {
+            } catch (err) {
+                res.redirect('/users')
+            }
+      },
+
+      editUsers : async (req, res) => {
+            try {
+                const { id } = req.params;
+                const {fullname, username, email, 
+                    department, job_level, gender, role} = req.body;
+
+                    await Users.findOneAndUpdate({
+                        _id: id
+                    },{
+                        fullname, username, email, 
+                        department, job_level, gender, role
+                    });
+                res.redirect('/users');
+            } catch (err) {
                 res.redirect('/users')
             }
       },
     
       deleteUsers: async (req, res ) => {
             try {
-                
-            } catch (error) {
-                
+                const { id } = req.params;
+
+                await Users.findOneAndRemove({
+                    _id: id
+                });
+                res.redirect('/users');
+            } catch (err) {
+                res.redirect('/users');
             }
       },
 
@@ -127,7 +147,7 @@ module.exports = {
                 res.render('admin/report/view_report', {
                     title: " Activity | report ",
                 });
-            } catch (error) {
+            } catch (err) {
                 res.redirect('/report');
             }
       },

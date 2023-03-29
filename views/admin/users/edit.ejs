@@ -40,12 +40,12 @@
         </div>
         <div class="card-body">
             <section class="content">
-                <form action="">
+                <form action="/users/<%= user._id %>?_method=PUT" method="POST">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Edit User</h3>
+                                    <h3 class="card-title">Edit User <%= user.fullname %></h3>
                                     <div class="card-tools">
                                         <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                                         <i class="fas fa-minus"></i>
@@ -55,49 +55,49 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="Fullname">Fullname</label>
-                                        <input type="text" id="Fullname" class="form-control" placeholder="Fullname">
+                                        <input type="text" id="Fullname" name="fullname" value="<%= user.fullname %>" class="form-control" placeholder="Fullname">
                                     </div>
                                     <div class="form-group">
                                         <label for="Username">Username</label>
-                                        <input type="text" id="Username" class="form-control" placeholder="Username">
+                                        <input type="text" id="Username" name="username" value="<%= user.username %>" class="form-control" placeholder="Username">
                                     </div>
                                     <div class="form-group">
                                         <label for="email">Email</label>
-                                        <input type="email" id="email" class="form-control" placeholder="Email">
+                                        <input type="email" id="email" name="email" value="<%= user.email %>" class="form-control" placeholder="Email">
                                     </div> 
                                     <div class="form-group">
-                                        <label for="inputStatus">Department</label>
-                                        <select id="inputStatus" class="form-control custom-select">
-                                        <option selected disabled>Select one</option>
-                                        <option>AFS</option>
-                                        <option>TSR</option>
+                                        <label for="department">Department</label>
+                                        <select id="department" name="department" class="form-control custom-select">
+                                        <option selected disabled value="<%= user.department %>" >Select one</option>
+                                        <option value="AFS">AFS</option>
+                                        <option value="TSR">TSR</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputStatus">Job Level</label>
-                                        <select id="inputStatus" class="form-control custom-select">
-                                        <option selected disabled>Select one</option>
+                                        <label for="job_level">Job Level</label>
+                                        <select id="job_level" name="job_level" class="form-control custom-select">
+                                        <option selected disabled value="<%= user.job_level %>">Select one</option>
                                         <option value="Staff TSR">Staff TSR</option>
                                         <option value="Staff AFS">Staff AFS</option>
                                         <option value="Manager TSR & AFS">Manager TSR & AFS</option>
                                         </select>
                                     </div>
+                                    <!-- <div class="form-group">
+                                        <label for="password">Password</label>
+                                        <input type="text" id="password" name="password" value="<%= user.password%>" class="form-control">
+                                    </div> -->
                                     <div class="form-group">
-                                        <label for="inputName">Password</label>
-                                        <input type="text" id="inputName" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputStatus">Gender</label>
-                                        <select id="inputStatus" class="form-control custom-select">
-                                        <option selected disabled>Select one</option>
+                                        <label for="gender">Gender</label>
+                                        <select id="gender" class="form-control custom-select" name="gender">
+                                        <option selected disabled value="<%= user.gender %>">Select one</option>
                                         <option>Male</option>
                                         <option>Female</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputStatus">Role</label>
-                                        <select id="inputStatus" class="form-control custom-select">
-                                        <option selected disabled>Select one</option>
+                                        <label for="role">Role</label>
+                                        <select id="role" class="form-control custom-select" name="role">
+                                        <option selected disabled value="<%= user.role %>">Select one</option>
                                         <option value="1">Admin</option>
                                         <option value="2">Staff</option>
                                         </select>
@@ -110,7 +110,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <input type="submit" value="Edit new Users" class="btn btn-success float-right">
+                            <input type="submit" value="Edit Users" class="btn btn-success float-right">
                         </div>
                     </div>
                  </form>
