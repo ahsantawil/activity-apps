@@ -59,14 +59,14 @@ const activitySchema = new mongoose.Schema({
     },
     phone: {
         type: Number,
-        required: true
+        required: true 
     },
     remaks: {
         type: String
     },
     approve: {
         type: String,
-        default: 'Prosess'
+        default: 'Proses'
     },
 }, {timestamps: true})
 

@@ -33,7 +33,7 @@ module.exports = {
       viewActivity : async (req, res) => {
             try {
                 // const activity = await Activity.find();
-                res.render('admin/activity/add_activity', {
+                res.render('admin/activity/add', {
                     // activity,
                     title: "ActivityCSI | Activity"
                 });
@@ -46,9 +46,9 @@ module.exports = {
     
       addActivity : async (req, res) => {
             try {
-                res.redirect('/admin/activity/add')
+                res.redirect('/activity')
             } catch (err) {
-                res.redirect('/admin/activity/add')
+                res.redirect('/activity')
             }
       },
 
