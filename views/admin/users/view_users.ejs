@@ -71,16 +71,16 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <% for(let i = 0; i < user.length; i++) { %>
+                          <% for(let i = 0; i < users.length; i++) { %>
                           <tr>
                               <td><%= i + 1 %></td>
-                              <td><%= user[i].fullname %></td>
-                              <td><%= user[i].username %></td>
-                              <td><%= user[i].email %></td>
-                              <td><%= user[i].department %></td>
+                              <td><%= users[i].fullname %></td>
+                              <td><%= users[i].username %></td>
+                              <td><%= users[i].email %></td>
+                              <td><%= users[i].department %></td>
                               <td>
-                                <form action="/users/<%= user[i]._id %>?_method=DELETE" method="POST">
-                                  <a href="/users/edit/<%= user[i]._id %>" class="btn btn-primary btn-sm">
+                                <form action="/users/<%= users[i]._id %>?_method=DELETE" method="POST">
+                                  <a href="/users/edit/<%= users[i]._id %>" class="btn btn-primary btn-sm">
                                     <i class="fas fa-pencil-alt"></i>
                                   </a>
                                   <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>

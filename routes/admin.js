@@ -1,9 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const adminController = require('../controllers/adminController');
+const auth = require('../middlewares/auth');
 
 //Sigin
-router.get('/', adminController.signIn)
+router.get('/', adminController.viewSignIn);
+router.post('/', adminController.actionSignIn);
+router.use(auth);
+router.get('/logout', adminController.Logout);
 
 /* GET home page. */
 router.get('/dashboard', adminController.viewDashboard);
