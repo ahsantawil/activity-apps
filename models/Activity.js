@@ -1,21 +1,13 @@
 const mongoose = require("mongoose");
-const { ObjectId } = mongoose.Schema;
 
 const activitySchema = new mongoose.Schema({
-    userId: {
-        _id: {
-            type: ObjectId,
-            ref: 'User',
-            required: true
-        },
-        fullname : {
-            type: String,
-            required: true
-        },
-        department: {
-            type: String,
-            required: true
-        }
+    fullname : {
+        type: String,
+        required: true
+    },
+    department: {
+        type: String,
+        required: true
     },
     activityDate: {
         type: Date,
@@ -29,7 +21,7 @@ const activitySchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    case: {
+    cases: {
         type: String,
         required: true
     },

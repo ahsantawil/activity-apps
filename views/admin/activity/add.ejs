@@ -39,6 +39,7 @@
             </button>
           </div>
         </div>
+        <%- include('../../partials/message.ejs') %>
         <div class="card-body">
             <section class="content">
               <form action="" method="post">
@@ -56,11 +57,11 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                       <label for="Fullname">Fullname</label>
-                                      <input type="text" id="Fullname" name="fullname" value="<%= user.fullname %>" class="form-control" disabled>
+                                      <input name="fullname" value="<%= user.fullname %>" class="form-control">
                                     </div>
                                     <div class="form-group">
-                                      <label for="Department">Department</label>
-                                      <input type="text" id="Department" name="department" value="<%= user.department %>" class="form-control" disabled>
+                                      <label for="department">Department</label>
+                                      <input name="department" value="<%= user.department %>" class="form-control">
                                     </div>
                                     <div class="form-group">
                                       <label for="Tanggal">Tanggal</label>
@@ -86,7 +87,7 @@
                                     </div>
                                     <div class="form-group">
                                       <label for="case">Case</label>
-                                      <input type="text" id="case" name="case" class="form-control">
+                                      <input type="text" id="case" name="cases" class="form-control">
                                     </div>
                                     <div class="form-group">
                                       <label for="actionPlan">Action Plan</label>
@@ -102,10 +103,10 @@
                                     </div>
                                     <div class="form-group">
                                       <label for="inputStatus">Status</label>
-                                      <select id="inputStatus" class="form-control custom-select">
+                                      <select id="inputStatus" class="form-control custom-select" name="status">
                                         <option selected disabled>Select one</option>
-                                        <option value="1">Pending</option>
-                                        <option value="2">Success</option>
+                                        <option value="Pending">Pending</option>
+                                        <option value="Success">Success</option>
                                       </select>
                                     </div>
                                     <div class="form-group">
@@ -114,7 +115,7 @@
                                     </div>
                                     <div class="form-group">
                                       <label for="Position">Position</label>
-                                      <input type="text" id="Position" name="poistion" class="form-control">
+                                      <input type="text" id="Position" name="position" class="form-control">
                                     </div>
                                     <div class="form-group">
                                       <label for="phone">Phone Number</label>

@@ -14,6 +14,7 @@ router.get('/dashboard', adminController.viewDashboard);
 
 //activity route
 router.get('/activity', adminController.viewActivity);
+router.post('/activity', adminController.addActivity);
 
 //user route
 router.get('/users', adminController.viewUsers);

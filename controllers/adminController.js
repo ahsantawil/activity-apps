@@ -89,7 +89,14 @@ module.exports = {
     
       addActivity : async (req, res) => {
             try {
-
+                const { fullname, department, activityDate, desc, jobType, 
+                        cases, action, location, solving, status, pic, position, phone, remaks } = req.body;
+                const activity = await Activity.create({
+                    fullname, department, activityDate, desc, jobType, cases, action, 
+                    location, solving, status, pic, position, phone, remaks
+                });
+                req.flash('alertMessage', 'Success Add New Activity');
+                req.flash('alertStatus', 'success');
                 res.redirect('/activity')
             } catch (err) {
                 req.flash('alertMessage', `${err.message}`);
