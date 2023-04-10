@@ -1,6 +1,6 @@
-<%- include('../../partials/header.ejs') %>
-<%- include('../../partials/navbar.ejs') %>
-<%- include('../../partials/sidebar.ejs') %>
+<%- include('../../../partials/header.ejs') %>
+<%- include('../../../partials/navbar.ejs') %>
+<%- include('../../../partials/sidebar.ejs') %>
 
 
 <!-- Content Wrapper. Contains page content -->
@@ -39,7 +39,6 @@
             </button>
           </div>
         </div>
-        <%- include('../../partials/message.ejs') %>
         <div class="card-body">
           <table id="example1" class="table table-bordered table-striped">
             <thead>
@@ -48,7 +47,18 @@
               <th>Nama</th>
               <th>Departement</th>
               <th>Tanggal</th>
-              <th>View</th>
+              <th>Desc</th>
+              <th>Job Type</th>
+              <th>Case</th>
+              <th>Action</th>
+              <th>Location</th>
+              <th>Solving</th>
+              <th>Status</th>
+              <th>PIC</th>
+              <th>Position</th>
+              <th>PhoneNumber</th>
+              <th>Remaks</th>
+              <th>Approve</th>
             </tr>
             </thead>
             <tbody>
@@ -58,9 +68,18 @@
               <td><%= activity[i].fullname %></td>
               <td><%= activity[i].department %></td>
               <td><%= activity[i].activityDate.toLocaleString().split(',')[0] %></td>
-              <td>
-                <a href="/report/details/<%= activity[i]._id %>" class="btn btn-success btn-sm"><i class="far fa-eye"></i></a>
-              </td>
+              <td><%= activity[i].desc %></td>
+              <td><%= activity[i].JobType %></td>
+              <td><%= activity[i].cases %></td>
+              <td><%= activity[i].action %></td>
+              <td><%= activity[i].location %></td>
+              <td><%= activity[i].solving %></td>
+              <td><%= activity[i].status %></td>
+              <td><%= activity[i].pic %></td>
+              <td><%= activity[i].position %></td>
+              <td><%= activity[i].phone %></td>
+              <td><%= activity[i].remaks %></td>
+              <td><%= activity[i].approve %></td>
             </tr>
             <% } %>
             </tbody>
@@ -68,7 +87,7 @@
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
-          Footer
+          <a href="/report" class="btn btn-primary btn-sm">back</a>
         </div>
         <!-- /.card-footer-->
       </div>
@@ -79,4 +98,4 @@
 </div>
 <!-- /.content-wrapper -->
 
-<%- include('../../partials/footer.ejs') %>
+<%- include('../../../partials/footer.ejs') %>

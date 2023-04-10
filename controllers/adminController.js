@@ -208,14 +208,43 @@ module.exports = {
       // Report
       viewReport: async (req, res) => {
             try {
+                const activity = await Activity.find();
+                const alertMessage = req.flash('alertMessage');
+                const alertStatus = req.flash('alertStatus');
+                const alert = { message: alertMessage, status: alertStatus };
                 res.render('admin/report/view_report', {
                     title: " Activity | report ",
+                    alert,
+                    activity,
                     user: req.session.user
                 });
             } catch (err) {
+                req.flash('alertMessage', `${err.message}`);
+                req.flash('alertStatus', 'danger');
                 res.redirect('/report');
             }
       },
+
+      reportDetail: async (req, res ) => {
+          try {
+            const { id } = req.params;
+            const alertMessage = req.flash('alertMessage');
+            const alertStatus = req.flash('alertStatus');
+            const alert = { message: alertMessage, status: alertStatus };
+            const activity = await Activity.findById({ _id: id});
+            res.render('admin/report/details/view_details', {
+                title: 'ActivityCSI | Detail report',
+                alert,
+                activity,
+                user: req.session.user
+            });
+            console.log(activity);
+        } catch (err) {
+            req.flash('alertMessage', `${err.message}`);
+            req.flash('alertStatus', 'danger');
+            res.redirect('/report');
+        }
+      }
 
     
 }

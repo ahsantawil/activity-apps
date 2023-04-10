@@ -26,5 +26,6 @@ router.delete('/users/:id', adminController.deleteUsers);
 
 //Report route
 router.get('/report', adminController.viewReport);
+router.get('/report/details/:id', adminController.reportDetail);
 
 module.exports = router;
