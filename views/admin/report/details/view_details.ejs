@@ -5,96 +5,191 @@
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Activity Report</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">report</li>
-            </ol>
-          </div>
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1> Details activity <%= user.fullname %></h1>
         </div>
-      </div><!-- /.container-fluid -->
-    </section>
-
-    <!-- Main content -->
-    <section class="content">
-
-      <!-- Default box -->
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Report <strong><%= user.fullname %></strong></h3>
-
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-              <i class="fas fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-              <i class="fas fa-times"></i>
-            </button>
-          </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">Data Activity</li>
+          </ol>
         </div>
-        <div class="card-body">
-          <table id="example1" class="table table-bordered table-striped">
-            <thead>
-            <tr>
-              <th>No.</th>
-              <th>Nama</th>
-              <th>Departement</th>
-              <th>Tanggal</th>
-              <th>Desc</th>
-              <th>Job Type</th>
-              <th>Case</th>
-              <th>Action</th>
-              <th>Location</th>
-              <th>Solving</th>
-              <th>Status</th>
-              <th>PIC</th>
-              <th>Position</th>
-              <th>PhoneNumber</th>
-              <th>Remaks</th>
-              <th>Approve</th>
-            </tr>
-            </thead>
-            <tbody>
-              <% for(let i=0; i < activity.length; i++) { %>
-            <tr>
-              <td><%= i+1 %></td>
-              <td><%= activity[i].fullname %></td>
-              <td><%= activity[i].department %></td>
-              <td><%= activity[i].activityDate.toLocaleString().split(',')[0] %></td>
-              <td><%= activity[i].desc %></td>
-              <td><%= activity[i].JobType %></td>
-              <td><%= activity[i].cases %></td>
-              <td><%= activity[i].action %></td>
-              <td><%= activity[i].location %></td>
-              <td><%= activity[i].solving %></td>
-              <td><%= activity[i].status %></td>
-              <td><%= activity[i].pic %></td>
-              <td><%= activity[i].position %></td>
-              <td><%= activity[i].phone %></td>
-              <td><%= activity[i].remaks %></td>
-              <td><%= activity[i].approve %></td>
-            </tr>
-            <% } %>
-            </tbody>
-          </table>
-        </div>
-        <!-- /.card-body -->
-        <div class="card-footer">
-          <a href="/report" class="btn btn-primary btn-sm">back</a>
-        </div>
-        <!-- /.card-footer-->
       </div>
-      <!-- /.card -->
+    </div><!-- /.container-fluid -->
+  </section>
 
-    </section>
-    <!-- /.content -->
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-3">
+
+          <!-- Profile Image -->
+          <div class="card card-primary card-outline">
+            <div class="card-body box-profile">
+              <div class="text-center">
+                <img class="profile-user-img img-fluid img-circle"
+                     src="/style/dist/img/user4-128x128.jpg"
+                     alt="User profile picture">
+              </div>
+
+              <h3 class="profile-username text-center"> <%= user.fullname %> </h3>
+
+              <p class="text-muted text-center"> <%= user.department %> </p>
+
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">About Job</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <strong><i class="fas fa-book mr-1"></i> PIC </strong>
+              <p class="text-muted">
+                <%= activity.pic %>
+              </p>
+              <hr>
+              <strong><i class="fas fa-book mr-1"></i> Phone </strong>
+              <p class="text-muted">
+                <%= activity.phone %>
+              </p>
+              <hr>
+              <strong><i class="fas fa-book mr-1"></i> Position </strong>
+              <p class="text-muted">
+                <%= activity.position %>
+              </p>
+              <hr>
+              <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
+              <p class="text-muted"> <%= activity.location %> </p>
+              <hr>
+              <strong><i class="fas fa-pencil-alt mr-1"></i> Job Type</strong>
+              <p class="text-muted">
+                <span class="tag tag-success"> <%= activity.jobType %></span>
+              </p>
+              <hr>
+              <strong><i class="far fa-file-alt mr-1"></i> Status</strong>
+              <p class="text-muted">
+                <%= activity.status %>
+              </p>
+            </div>
+            <!-- /.card-body -->
+          </div>
+        </div>
+        <!-- /.col -->
+        <div class="col-md-9">
+          <div class="card">
+            <div class="card-header p-2">
+              <ul class="nav nav-pills">
+                <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Activity</a></li>
+                <li class="nav-item"><a class="nav-link" href="#Review" data-toggle="tab">Review</a></li>
+              </ul>
+            </div><!-- /.card-header -->
+            <div class="card-body">
+              <div class="tab-content">
+                <div class="active tab-pane" id="activity">
+                  <!-- Post -->
+                  <div class="post">
+                    <div class="user-block">
+                      <span class="username">
+                        <a href="#"> Deskripsi </a>
+                        <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
+                      </span>
+                      <span class="description"> <%= activity.activityDate.toLocaleString().split(',')[0] %> </span>
+                    </div>
+                    <!-- /.user-block -->
+                    <p>
+                      <%= activity.desc %>
+                    </p>
+                  </div>
+                  <!-- /.post -->
+                  <div class="post">
+                    <div class="user-block">
+                      <span class="username">
+                        <a href="#"> Case </a>
+                        <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
+                      </span>
+                      <span class="description"> <%= activity.activityDate.toLocaleString().split(',')[0] %> </span>
+                    </div>
+                    <!-- /.user-block -->
+                    <p>
+                      <%= activity.cases %>
+                    </p>
+                  </div>
+                  <!-- /.post -->
+                  <div class="post">
+                    <div class="user-block">
+                      <span class="username">
+                        <a href="#"> Deskripsi </a>
+                        <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
+                      </span>
+                      <span class="description"> <%= activity.activityDate.toLocaleString().split(',')[0] %> </span>
+                    </div>
+                    <!-- /.user-block -->
+                    <p>
+                      <%= activity.action %>
+                    </p>
+                  </div>
+                  <!-- /.post -->
+                  <div class="post">
+                    <div class="user-block">
+                      <span class="username">
+                        <a href="#"> Solving </a>
+                        <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
+                      </span>
+                      <span class="description"> <%= activity.activityDate.toLocaleString().split(',')[0] %> </span>
+                    </div>
+                    <!-- /.user-block -->
+                    <p>
+                      <%= activity.solving %>
+                    </p>
+                  </div>
+                  <!-- /.post -->
+                </div>
+
+                <div class="tab-pane" id="Review">
+                  <form class="form-horizontal" action="" method="post">
+                    <div class="form-group row">
+                      <label for="remaks" class="col-sm-2 col-form-label">Remaks</label>
+                      <div class="col-sm-10">
+                        <textarea class="form-control" name="remaks" id="remaks" placeholder="Remaks"></textarea>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="approve" class="col-sm-2 col-form-label">Approve</label>
+                      <div class="col-sm-10">
+                        <select id="approve" name="approve" class="form-control custom-select">
+                          <option value="Proses">Proses</option>
+                          <option value="Completed">Completed</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <div class="offset-sm-2 col-sm-10">
+                        <button type="submit" class="btn btn-danger">Approve</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <!-- /.tab-pane -->
+              </div>
+              <!-- /.tab-content -->
+            </div><!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
 
