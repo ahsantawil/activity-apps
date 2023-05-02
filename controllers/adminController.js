@@ -238,7 +238,23 @@ module.exports = {
                 activity,
                 user: req.session.user
             });
-            console.log(activity);
+        } catch (err) {
+            req.flash('alertMessage', `${err.message}`);
+            req.flash('alertStatus', 'danger');
+            res.redirect('/report');
+        }
+      },
+
+      actionReport: async ( req , res ) => {
+        try {
+            const {id, remaks, approve } = req.body;
+            const activity = await Activity.findOne({ _id:id});
+                    activity.remaks = remaks;
+                    activity.approve = approve;
+            await activity.save();
+            req.flash('alertMessage', "Berhasil Approve");
+            req.flash('alertStatus', "success");
+            res.redirect('/report');
         } catch (err) {
             req.flash('alertMessage', `${err.message}`);
             req.flash('alertStatus', 'danger');
