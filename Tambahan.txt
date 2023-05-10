@@ -1,0 +1,8 @@
+1. Tanggal tidak bisa mundur 3 hari (deafult tanggal sekarang)
+2. Other form..
+3. Tambahan status untuk ( lokasi offline/Online)
+4. Bukti pengerjaan pekerjaan client/user (PLN/internal), upload bukti pekerjaan
+5. tambah kolom perusahaan.
+6. tambah kolom listen dan rating pekerjaan
+7. target ada dikolom pending
+8. System akan dibuat untuk semua divisi.

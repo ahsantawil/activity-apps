@@ -29,17 +29,19 @@ const activitySchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    location: {
+    solving: {
         type: String,
         required: true
     },
-    solving: {
+    location: {
         type: String,
         required: true
     },
     status: {
         type: String,
-        default: 'Pending'
+    },
+    target: {
+        type: String,
     },
     pic: {
         type: String,
@@ -49,16 +51,28 @@ const activitySchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    company: {
+        type: String,
+        required: true
+    },
     phone: {
         type: Number,
         required: true 
     },
+    other: {
+        type: String
+    },
+    file: {
+        type: String
+    },
     remaks: {
         type: String
     },
-    approve: {
-        type: String,
-        default: 'Proses'
+    rating: {
+        type: String
+    },
+    coment: {
+        type: String
     },
 }, {timestamps: true})
 
