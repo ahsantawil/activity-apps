@@ -37,6 +37,9 @@ const activitySchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    locationStatus: {
+        type: String
+    },
     status: {
         type: String,
     },

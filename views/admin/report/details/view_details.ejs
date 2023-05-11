@@ -46,7 +46,7 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <strong><i class="fas fa-book mr-1"></i> PIC </strong>
+              <strong><i class="fas fa-book mr-1"></i> Client </strong>
               <p class="text-muted">
                 <%= activity.pic %>
               </p>
@@ -61,6 +61,11 @@
                 <%= activity.position %>
               </p>
               <hr>
+              <strong><i class="fas fa-book mr-1"></i> Company </strong>
+              <p class="text-muted">
+                <%= activity.company %>
+              </p>
+              <hr>
               <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
               <p class="text-muted"> <%= activity.location %> </p>
               <hr>
@@ -72,6 +77,11 @@
               <strong><i class="far fa-file-alt mr-1"></i> Status</strong>
               <p class="text-muted">
                 <%= activity.status %>
+              </p>
+              <hr>
+              <strong><i class="far fa-file-alt mr-1"></i> Target</strong>
+              <p class="text-muted">
+                <%= activity.target %>
               </p>
             </div>
             <!-- /.card-body -->
@@ -121,7 +131,7 @@
                   <div class="post">
                     <div class="user-block">
                       <span class="username">
-                        <a href="#"> Deskripsi </a>
+                        <a href="#"> Action </a>
                         <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
                       </span>
                       <span class="description"> <%= activity.activityDate.toLocaleString().split(',')[0] %> </span>
@@ -145,6 +155,19 @@
                       <%= activity.solving %>
                     </p>
                   </div>
+                  <div class="post">
+                    <div class="user-block">
+                      <span class="username">
+                        <a href="#"> File </a>
+                        <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
+                      </span>
+                      <span class="description"> <%= activity.activityDate.toLocaleString().split(',')[0] %> </span>
+                    </div>
+                    <!-- /.user-block -->
+                    <p>
+                      <%= activity.file %>
+                    </p>
+                  </div>
                   <!-- /.post -->
                 </div>
 
@@ -159,10 +182,23 @@
                     <div class="form-group row">
                       <label for="approve" class="col-sm-2 col-form-label">Rating</label>
                       <div class="col-sm-10">
-                        <select id="approve" name="approve" class="form-control custom-select">
-                          <option value="Proses">Proses</option>
-                          <option value="Completed">Completed</option>
-                        </select>
+                        <div class="card">
+                          <div class="card-body">
+                            <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
+                              <div class="rating"> 
+                                <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> <br>
+                                <input type="radio" name="rating" value="2" id="2"><label for="2">☆☆</label> <br>
+                                <input type="radio" name="rating" value="3" id="3"><label for="3">☆☆☆</label> <br>
+                                <input type="radio" name="rating" value="4" id="4"><label for="4">☆☆☆☆</label> <br>
+                                <input type="radio" name="rating" value="5" id="5"><label for="5">☆☆☆☆☆</label> 
+                              </div>
+                            </div>
+                            <div class="input-group">
+                              <input id="new-event" type="text" class="form-control" name="coment" placeholder="Comment">
+                            </div>
+                            <!-- /input-group -->
+                          </div>
+                        </div>
                       </div>
                     </div>
                     <div class="form-group row">
@@ -187,5 +223,4 @@
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
-
 <%- include('../../../partials/footer.ejs') %>
