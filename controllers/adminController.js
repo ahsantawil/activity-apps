@@ -1,5 +1,7 @@
 const Activity = require("../models/Activity");
 const Users = require("../models/Users");
+const Job = require("../models/Job");
+const Department = require("../models/Department");
 const bcrypt = require('bcryptjs');
 
 module.exports = {
@@ -259,6 +261,27 @@ module.exports = {
             req.flash('alertMessage', `${err.message}`);
             req.flash('alertStatus', 'danger');
             res.redirect('/report');
+        }
+      },
+
+      JobView: async (req, res) => {
+        try {
+            const department = await Department.find();
+            const job = await Job.find();
+            const alertMessage = req.flash('alertMessage');
+            const alertStatus = req.flash('alertStatus');
+            const alert = { message: alertMessage, status: alertStatus };
+            res.render('admin/job/view_job', {
+                title: " Activity | Job ",
+                alert,
+                department,
+                job,
+                user: req.session.user
+            });
+        } catch (err) {
+            req.flash('alertMessage', `${err.message}`);
+            req.flash('alertStatus', 'danger');
+            res.redirect('/job');
         }
       }
 

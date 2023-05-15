@@ -68,7 +68,7 @@
                                       <input id="Tanggal" name="activityDate" value="<%= Date(`YYYY-MM-DD`) %>" class="form-control">
                                     </div>
                                     <div class="form-group">
-                                      <label for="inputDescription">Project Description</label>
+                                      <label for="inputDescription">Description</label>
                                       <textarea id="inputDescription" class="form-control" name="desc" rows="4"></textarea>
                                     </div>
                                     <div class="form-group">
@@ -94,23 +94,29 @@
                                       <textarea id="actionPlan" class="form-control" name="action" rows="4"></textarea>
                                     </div>
                                     <div class="form-group">
-                                      <label for="Location">Location</label>
-                                      <input type="text" id="Location" name="location" class="form-control">
+                                      <label for="solving">Resume</label>
+                                      <textarea id="solving" class="form-control" name="solving" rows="4"></textarea>
                                     </div>
                                     <div class="form-group">
-                                      <label for="solving">Solving</label>
-                                      <textarea id="solving" class="form-control" name="solving" rows="4"></textarea>
+                                      <label for="inputStatus">Location</label>
+                                      <select id="inputStatus" class="form-control custom-select" name="location">
+                                        <option selected disabled>Select one</option>
+                                        <option value="Offline">OffLine</option>
+                                          <input type="text" name="locationStatus" placeholder="Lokasi pekerjaan">
+                                        <option value="Online">Online</option>
+                                      </select>
                                     </div>
                                     <div class="form-group">
                                       <label for="inputStatus">Status</label>
                                       <select id="inputStatus" class="form-control custom-select" name="status">
                                         <option selected disabled>Select one</option>
                                         <option value="Pending">Pending</option>
-                                        <option value="Success">Success</option>
+                                          <input type="text" name="target" placeholder="target pekerjaan">
+                                        <option value="Finish">Finish</option>
                                       </select>
                                     </div>
                                     <div class="form-group">
-                                      <label for="pic">PIC</label>
+                                      <label for="pic">Client</label>
                                       <input type="text" id="pic" name="pic" class="form-control">
                                     </div>
                                     <div class="form-group">
@@ -126,8 +132,12 @@
                                       <input type="number" id="phone" name="phone" class="form-control">
                                     </div>
                                     <div class="form-group">
-                                      <label for="remaks">Remaks</label>
-                                      <textarea id="remaks" class="form-control" name="remaks" rows="4"></textarea>
+                                      <label for="file">Upload Photo</label>
+                                      <input type="file" id="file" name="file" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="other">Other</label>
+                                      <input type="text" id="other" name="other" class="form-control">
                                     </div>
                                 </div>
                               <!-- /.card-body -->

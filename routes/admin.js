@@ -27,6 +27,10 @@ router.delete('/users/:id', adminController.deleteUsers);
 //Report route
 router.get('/report', adminController.viewReport);
 router.get('/report/details/:id', adminController.reportDetail);
-router.put('/report/details/:id', adminController.actionReport)
+router.put('/report/details/:id', adminController.actionReport);
+
+// Job Route
+
+router.get('/job', adminController.JobView);
 
 module.exports = router;
